@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import CardList from "./components/card-list/card-list";
+import "./App.css";
 
 function App() {
+  const [monsters, setMonsters] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      const resp = await fetch("https://jsonplaceholder.typicode.com/users");
+      setMonsters(await resp.json());
+    }
+    fetchData();
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CardList monsters={monsters} />
     </div>
   );
 }
