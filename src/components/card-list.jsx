@@ -1,4 +1,4 @@
-import Card from "../card/card";
+import Card from './card'
 import "./card-list.css";
 
 const CardList = (props) => {
