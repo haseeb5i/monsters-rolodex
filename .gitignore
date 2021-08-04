@@ -119,4 +119,10 @@ dist
 
 
 # custom
+/src
+/public
 .envrc
+.yarn
+.yarnrc.yml
+yarn.lock
+package.json
